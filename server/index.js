@@ -1,11 +1,10 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-const pino = require('express-pino-logger')();
-const mma = require('mma');
+const path = require('path');
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(pino);
+const PORT = process.env.PORT || 4000;
+
+app.use(express.static(path.join(__dirname, '..', 'build/')));
 
 app.get('/api/fighter/:name', (req, res) => {
 
@@ -16,6 +15,10 @@ app.get('/api/fighter/:name', (req, res) => {
 
 });
 
-app.listen(process.env.PORT || 3001, () =>
-  console.log('Express server is running on localhost:3001')
-);
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, '..', 'build', 'index.html'));
+});
+
+app.listen(PORT, () => {
+  console.log(`Check out the app at http://localhost:${PORT}`);
+});
