@@ -14,7 +14,6 @@ app.get('/api/fighter/:name', (req, res) => {
     res.send(JSON.stringify(data));
   });
 
-
 });
 
 app.listen(process.env.PORT || 3001, () =>
