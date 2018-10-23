@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import { device } from '../utils/devices';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchFighter } from '../actions/FighterActions';
@@ -36,10 +37,15 @@ const Loader = styled.div`
 
   &:after {
     content: "";
-    width: 7vw;
-    height: 7vw;
+    width: 13vw;
+    height: 13vw;
     background: rgb(51,51,51);
     animation: ${rotate} 2s linear infinite;
+
+    @media ${device.laptop}{
+      width: 7vw;
+      height: 7vw;
+    }
   }
 `
 
