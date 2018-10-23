@@ -1,26 +1,27 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import styled from 'styled-components';
+import Home from './pages/Home';
+import Fighter from './pages/Fighter';
+import Header from './components/Header';
+
+const Main = styled.main`
+  width: 90vw;
+  margin: 0 auto;
+  padding: 13rem 0 4rem;
+`;
 
 class App extends Component {
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Main>
+        <Header />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/fighter/:id' component={Fighter} />
+        </Switch>
+      </Main>
     );
   }
 }

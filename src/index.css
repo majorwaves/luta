@@ -1,14 +1,96 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  color: rgb(51,51,51,);
+  font-family: 'FG';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+@font-face {
+    font-family: 'FG';
+    src: url('./assets/type/FoundersGrotesk-Medium.woff2') format('woff2'),
+        url('./assets/type/FoundersGrotesk-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FG';
+    src: url('./assets/type/FoundersGrotesk-Regular.woff2') format('woff2'),
+        url('./assets/type/FoundersGrotesk-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FG';
+    src: url('./assets/type/FoundersGrotesk-Light.woff2') format('woff2'),
+        url('./assets/type/FoundersGrotesk-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FG';
+    src: url('./assets/type/FoundersGrotesk-Semibold.woff2') format('woff2'),
+        url('./assets/type/FoundersGrotesk-Semibold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Founders Grotesk Regular';
+    src: url('./assets/type/FoundersGrotesk-RegularItalic.woff2') format('woff2'),
+        url('./assets/type/FoundersGrotesk-RegularItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'FG';
+    src: url('./assets/type/FoundersGrotesk-LightItalic.woff2') format('woff2'),
+        url('./assets/type/FoundersGrotesk-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'FG';
+    src: url('./assets/type/FoundersGrotesk-SemiboldItalic.woff2') format('woff2'),
+        url('./assets/type/FoundersGrotesk-SemiboldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'FG';
+    src: url('./assets/type/FoundersGrotesk-Bold.woff2') format('woff2'),
+        url('./assets/type/FoundersGrotesk-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FG';
+    src: url('./assets/type/FoundersGrotesk-BoldItalic.woff2') format('woff2'),
+        url('./assets/type/FoundersGrotesk-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'FG';
+    src: url('./assets/type/FoundersGrotesk-MediumItalic.woff2') format('woff2'),
+        url('./assets/type/FoundersGrotesk-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'OR';
+    src: url('./assets/type/Ogg-Roman.woff2') format('woff2'),
+        url('./assets/type/Ogg-Roman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
