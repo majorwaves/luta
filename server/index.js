@@ -7,6 +7,8 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(pino);
 
+app.use(express.static(path.join(__dirname, 'public', 'build')));
+
 app.get('/api/fighter/:name', (req, res) => {
 
   mma.fighter(req.params.name, function(data) {
@@ -15,6 +17,10 @@ app.get('/api/fighter/:name', (req, res) => {
   });
 
 
+});
+
+app.use('*', function (request, response) {
+  response.sendFile(path.join(__dirname, 'public', 'build', 'index.html'));
 });
 
 app.listen(process.env.PORT || 3001, () =>
