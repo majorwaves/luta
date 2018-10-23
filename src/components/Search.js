@@ -48,7 +48,6 @@ class Search extends Component {
   }
 
   handleSubmit = (e) => {
-    e.preventDefault();
     this.props.history.push(`/fighter/${this.state.value}`)
     this.setState({value: ''})
   }
