@@ -17,6 +17,8 @@ const Input = styled.input`
   text-align: center;
   font-family: 'FG';
   width: 100%;
+  appearance: none;
+  border-radius: 0;
 
   @media ${device.laptop}{
     background: transparent;
