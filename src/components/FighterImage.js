@@ -37,7 +37,7 @@ export default class FighterImage extends Component {
   }
 
   componentDidMount(){
-    axios.get(`http://api.duckduckgo.com/?q=${this.props.name}&format=json`)
+    axios.get(`https://api.duckduckgo.com/?q=${this.props.name}&format=json`)
     .then(res => {
       if(res.data.Image !== ""){
         this.setState({ image: res.data.Image , isLoaded: true })
