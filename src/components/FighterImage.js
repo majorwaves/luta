@@ -32,17 +32,11 @@ const Wrapper = styled.div`
     height: 100%;
     box-shadow: 0px 10px 22px -9px rgba(0,0,0,0.16);
   }
-
-  .ImageFilter-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
 `;
 
 const Default = styled.div`
   width: 100%;
-  height: 100%;
+  // height: 100%;
   background: black;
   box-shadow: 0px 10px 22px -9px rgba(0,0,0,0.16);
 `
