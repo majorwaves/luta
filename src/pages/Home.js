@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 
 const Home = () => (
   <Wrapper>
-    Try searching some for a fighter (ie. Jose Aldo), sorry it's mad slow, the API is kinda janky.
+    Try searching for a fighter (ie. Jose Aldo), sorry it's mad slow, the API is kinda janky.
   </Wrapper>
 );
 

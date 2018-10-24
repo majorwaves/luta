@@ -48,6 +48,7 @@ class Search extends Component {
   }
 
   handleSubmit = (e) => {
+    e.preventDefault();
     this.props.history.push(`/fighter/${this.state.value}`)
     this.setState({value: ''})
   }
@@ -56,7 +57,7 @@ class Search extends Component {
     return (
       <Wrapper>
         <form onSubmit={(e) => { this.handleSubmit(e) }}>
-          <Input type='search' ref='search' placeholder='Search a fighter' onChange={(e) => { this.handleChange(e) }} value={this.state.value} />
+          <Input type='search' placeholder='Search a fighter' onChange={(e) => { this.handleChange(e) }} value={this.state.value} />
         </form>
       </Wrapper>
     );
