@@ -57,10 +57,11 @@ const Method = styled.span`
   font-weight: 300;
   font-size: 30px;
   margin: 0;
-  text-align: right;
+  text-align: center;
 
   @media ${device.laptop}{
     font-size: 48px;
+    text-align: right;
   }
 `
 
