@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 import ImageFilter from 'react-image-filter';
+import noise from '../assets/img/noise-black.jpg';
 
 const Wrapper = styled.div`
   width: 10vw;
@@ -9,6 +10,22 @@ const Wrapper = styled.div`
   min-width: 200px;
   min-height: 200px;
   margin: 0 auto 4rem;
+  position: relative;
+  background: rgb(51,51,51);
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(${noise});
+    background-size: cover;
+    z-index: 1;
+    mix-blend-mode: soft-light;
+    opacity: .3;
+  }
 
   .ImageFilter {
     width: 100%;
@@ -16,7 +33,7 @@ const Wrapper = styled.div`
     box-shadow: 0px 10px 22px -9px rgba(0,0,0,0.16);
   }
 
-  img {
+  .ImageFilter-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -27,6 +44,7 @@ const Default = styled.div`
   width: 100%;
   height: 100%;
   background: black;
+  box-shadow: 0px 10px 22px -9px rgba(0,0,0,0.16);
 `
 
 export default class FighterImage extends Component {
@@ -40,7 +58,9 @@ export default class FighterImage extends Component {
     axios.get(`https://api.duckduckgo.com/?q=${this.props.name}&format=json`)
     .then(res => {
       if(res.data.Image !== ""){
-        this.setState({ image: res.data.Image , isLoaded: true })
+        this.setState({ image: res.data.Image, isLoaded: true })
+      } else {
+        console.log('hey!')
       }
     })
   }
@@ -51,7 +71,7 @@ export default class FighterImage extends Component {
       1, 0, 0, 0, 0,
       1, 0, 0, 0, 0,
       1, 0, 0, 0, 0,
-      0.5, -0.2, -0.8, -0.1, 1.1,
+      0, 1.6, 2, 0, -0.4,
     ];
 
     return (
@@ -59,6 +79,7 @@ export default class FighterImage extends Component {
         {this.state.isLoaded
           ?
             <ImageFilter
+              preserveAspectRatio='cover'
               image={this.state.image}
               filter={filter}
             />
