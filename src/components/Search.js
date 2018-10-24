@@ -39,8 +39,14 @@ const Input = styled.input`
 
 class Search extends Component {
 
-  state = {
-    value: ''
+  constructor(props){
+    super(props)
+
+    this.state = {
+      value: ''
+    }
+
+    this.search = React.createRef();
   }
 
   handleChange = (e) => {
@@ -49,6 +55,7 @@ class Search extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.search.current.blur();
     this.props.history.push(`/fighter/${this.state.value}`)
     this.setState({value: ''})
   }
@@ -57,7 +64,7 @@ class Search extends Component {
     return (
       <Wrapper>
         <form onSubmit={(e) => { this.handleSubmit(e) }}>
-          <Input type='search' placeholder='Search a fighter' onChange={(e) => { this.handleChange(e) }} value={this.state.value} />
+          <Input type='search' ref={this.search} placeholder='Search a fighter' onChange={(e) => { this.handleChange(e) }} value={this.state.value} />
         </form>
       </Wrapper>
     );
