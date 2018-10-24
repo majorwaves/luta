@@ -5,6 +5,8 @@ body {
   font-family: 'FG';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #fdd2d2;
+  background: white;
 }
 
 @font-face {
