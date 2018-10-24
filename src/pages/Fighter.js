@@ -9,6 +9,7 @@ import FighterName from '../components/FighterName';
 import FighterRecord from '../components/FighterRecord';
 import FighterImage from '../components/FighterImage';
 import BoutList from '../components/BoutList';
+import Stats from '../components/Stats';
 
 const Wrapper = styled.div`
 
@@ -84,6 +85,11 @@ class Fighter extends Component {
               <FighterName name={this.props.fighter.name} nickname={this.props.fighter.nickname} />
               <FighterImage name={this.props.fighter.name} />
               <FighterRecord record={this.props.fighter.record} />
+              <Stats
+                summary={this.props.fighter.summary}
+                strikes={this.props.fighter.strikes}
+                takedowns={this.props.fighter.takedowns}
+              />
               <BoutList fights={this.props.fighter.fights} />
             </Fragment>
           :
