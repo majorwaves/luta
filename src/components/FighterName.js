@@ -9,11 +9,16 @@ const Wrapper = styled.div`
 const Name = styled.h2`
   margin: 0;
   font-size: 60px;
+  line-height: 48px;
+  padding-top: 1rem;
   font-weight: 300;
   text-align: center;
+  text-transform: uppercase;
 
   @media ${device.laptop}{
     font-size: 120px;
+    line-height: 160px;
+    padding: 0;
   }
 `;
 
