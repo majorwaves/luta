@@ -11,7 +11,7 @@ const Head = styled.header`
   position: fixed;
   background: rgb(0,0,0);
   color: white;
-  z-index: 1;
+  z-index: 3;
 
   @media ${device.laptop}{
     padding: 2rem 5vw;
