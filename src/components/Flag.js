@@ -29,11 +29,26 @@ class Flag extends Component {
 
   componentDidMount(){
     let country = '';
-    if(this.props.country === 'United States'){
-      country = 'United States of America'
-    } else {
-      country = this.props.country
+    switch (this.props.country) {
+      case 'United States':
+        country = 'United States of America';
+        break;
+      case 'Russia':
+        country = 'Russian Federation';
+        break;
+      case 'England':
+        country = 'United Kingdom of Great Britain and Northern Ireland'
+        break;
+      case 'Scotland':
+        country = 'United Kingdom of Great Britain and Northern Ireland'
+        break;
+      case 'Northern Ireland':
+        country = 'United Kingdom of Great Britain and Northern Ireland'
+        break;
+      default:
+        country = this.props.country
     }
+    console.log(country)
     axios.get(`https://restcountries.eu/rest/v2/name/${country}?fullText=true`)
     .then(country => {
       this.setState({ country: country.data[0], isLoaded: true })
