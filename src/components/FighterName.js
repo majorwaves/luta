@@ -45,11 +45,24 @@ const NickName = styled.h2`
   }
 `
 
-const FighterName = (props) => (
-  <Wrapper>
-    <NickName>{props.nickname}</NickName>
-    <Name>{props.name}</Name>
-  </Wrapper>
-);
+const FighterName = (props) => {
+
+
+
+  const renderNickName = () => {
+    if(props.nickname !== ''){
+      return <NickName>{props.nickname}</NickName>
+    } else {
+      return
+    }
+  }
+
+  return (
+    <Wrapper>
+      {renderNickName()}
+      <Name>{props.name}</Name>
+    </Wrapper>
+  )
+}
 
 export default FighterName;

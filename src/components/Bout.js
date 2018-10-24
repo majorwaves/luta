@@ -32,7 +32,7 @@ const Opp = styled.h2`
     transition: 0.15s all ease-in-out;
 
     &:hover {
-      text-shadow: 0px 0px 8px rgba(255, 6, 100, .5);
+      color: rgb(255, 6, 100);
     }
   }
 
