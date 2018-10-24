@@ -29,6 +29,11 @@ const Opp = styled.h2`
   a {
     color: rgb(51,51,51);
     text-decoration: none;
+    transition: 0.15s all ease-in-out;
+
+    &:hover {
+      text-shadow: 0px 0px 8px rgba(255, 6, 100, .5);
+    }
   }
 
   @media ${device.laptop}{
