@@ -30,12 +30,18 @@ const NickName = styled.h2`
 
   &:before {
     content: '“';
-    padding-right: 1rem;
+
+    @media ${device.laptop}{
+      padding-right: 1rem;
+    }
   }
 
   &:after {
     content: '”';
-    padding-left: 1rem;
+
+    @media ${device.laptop}{
+      padding-left: 1rem;
+    }
   }
 `
 
