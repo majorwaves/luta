@@ -3,13 +3,13 @@ import styled from 'styled-components';
 import { device } from '../utils/devices';
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 23w;
   margin: 4rem 0;
 
   @media ${device.laptop}{
+    display: grid;
     padding: 2rem 4rem 0;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5vw;
   }
 `;
 
@@ -17,25 +17,39 @@ const List = styled.ul`
   padding: 0;
   margin: 0;
   list-style-type: none;
+  text-align: center;
+  margin-bottom: 2rem;
 
-  &:nth-of-type(2n){
-    text-align: center;
-  }
+  @media ${device.laptop}{
+    margin: 0;
 
-  &:last-of-type {
-    text-align: right;
+    &:first-of-type{
+      text-align: left;
+    }
+
+    &:last-of-type {
+      text-align: right;
+    }
   }
 `;
 
 const Header = styled.div`
   font-family: 'OR';
-  font-size: 48px;
+  font-size: 30px;
   margin-bottom: 1rem;
+
+  @media ${device.laptop}{
+    font-size: 48px;
+  }
 `;
 
 const Item = styled.li`
-  font-size: 48px;
+  font-size: 30px;
   text-transform: uppercase;
+
+  @media ${device.laptop}{
+    font-size: 48px;
+  }
 
   &:after {
     content: ',';
