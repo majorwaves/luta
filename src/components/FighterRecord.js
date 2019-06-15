@@ -6,9 +6,9 @@ const Record = styled.div`
   font-size: 48px;
 `;
 
-const FighterRecord = (props) => {
+const FighterRecord = ({ record }) => {
 
-  const array = props.record.split('-');
+  const array = record.split('-');
   const wins = array[0];
   const losses = array[1];
   const other = array[2];
