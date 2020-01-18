@@ -1,9 +1,9 @@
 [build]
   publish = "./build"
-  functions = "./server"/"
+  functions = "./functions"
 
 [dev]
   functions = "./functions"
   functionsPort = 34567
   targetPort = 8080
-  port = 3000
+  port = 8000
