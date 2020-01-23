@@ -4,12 +4,14 @@ export const FETCH_FIGHTER = "fetch_fighter";
 
 // Fetch a single fighters
 export function fetchFighter(fighter) {
+  console.log(`searching for: ${fighter}`);
   return dispatch => {
     return axios
       .get(
         `${process.env.REACT_APP_API_URL}/.netlify/functions/api/fighter/${fighter}`
       )
       .then(fighter => {
+        console.log(fighter);
         return dispatch({
           type: FETCH_FIGHTER,
           payload: fighter.data
