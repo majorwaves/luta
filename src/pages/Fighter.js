@@ -63,6 +63,7 @@ const Fighter = () => {
       console.log(response);
       if (response.success.data) {
         setFighter(response.data.data);
+        setLoaded(true);
       }
     };
 
