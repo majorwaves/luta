@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { device } from "../utils/devices";
-import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
-import { fetchFighter } from "../actions/FighterActions";
 import styled, { keyframes } from "styled-components";
 import axios from "axios";
 import Flag from "../components/Flag";
@@ -55,9 +53,18 @@ const Fighter = () => {
   let { id } = useParams();
 
   useEffect(() => {
+    let api = `http://localhost:34567`;
+
+    if (process.env.NODE_ENV === "production") {
+      api = `https://luta.netlify.com`;
+    }
+
     const fetchFighter = async () => {
+      if (loaded) {
+        setLoaded(false);
+      }
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/.netlify/functions/api/fighter/${id}`
+        `${api}/.netlify/functions/api/fighter/${id}`
       );
 
       console.log(response.data.data);
