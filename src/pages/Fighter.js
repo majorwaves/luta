@@ -62,7 +62,7 @@ const Fighter = () => {
 
       console.log(response);
       if (response.success) {
-        setFighter(response.data);
+        setFighter(response.data.data);
       }
     };
 
