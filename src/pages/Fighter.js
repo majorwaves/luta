@@ -57,11 +57,11 @@ const Fighter = () => {
   useEffect(() => {
     const fetchFighter = async () => {
       const response = await axios.get(
-        `${process.env.REACT_APP_API_URL}/.netlify/functions/api/fighter/${fighter}`
+        `${process.env.REACT_APP_API_URL}/.netlify/functions/api/fighter/${id}`
       );
 
       console.log(response);
-      if (response.success) {
+      if (response.success.data) {
         setFighter(response.data.data);
       }
     };
