@@ -60,9 +60,9 @@ const Fighter = () => {
         `${process.env.REACT_APP_API_URL}/.netlify/functions/api/fighter/${id}`
       );
 
-      console.log(response);
+      console.log(response.data);
       if (response.success.data) {
-        setFighter(response.data.data);
+        setFighter(response.data);
         setLoaded(true);
       }
     };
