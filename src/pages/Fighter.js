@@ -1,19 +1,18 @@
-import React, { Component, Fragment } from 'react';
-import { device } from '../utils/devices';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import { fetchFighter } from '../actions/FighterActions';
-import styled, { keyframes } from 'styled-components';
-import Flag from '../components/Flag';
-import FighterName from '../components/FighterName';
-import FighterRecord from '../components/FighterRecord';
-import FighterImage from '../components/FighterImage';
-import BoutList from '../components/BoutList';
-import Stats from '../components/Stats';
+import React, { useState, useEffect } from "react";
+import { device } from "../utils/devices";
+import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
+import { fetchFighter } from "../actions/FighterActions";
+import styled, { keyframes } from "styled-components";
+import axios from "axios";
+import Flag from "../components/Flag";
+import FighterName from "../components/FighterName";
+import FighterRecord from "../components/FighterRecord";
+import FighterImage from "../components/FighterImage";
+import BoutList from "../components/BoutList";
+import Stats from "../components/Stats";
 
-const Wrapper = styled.div`
-
-`;
+const Wrapper = styled.div``;
 
 const rotate = keyframes`
   from {
@@ -24,7 +23,6 @@ const rotate = keyframes`
     transform: rotate(360deg);
   }
 `;
-
 
 const Loader = styled.div`
   position: fixed;
@@ -40,67 +38,57 @@ const Loader = styled.div`
     content: "";
     width: 13vw;
     height: 13vw;
-    background: rgb(51,51,51);
+    background: rgb(51, 51, 51);
     animation: ${rotate} 2s linear infinite;
 
-    @media ${device.laptop}{
+    @media ${device.laptop} {
       width: 7vw;
       height: 7vw;
     }
   }
-`
+`;
 
-class Fighter extends Component {
+const Fighter = () => {
+  const [loaded, setLoaded] = useState();
+  const [fighter, setFighter] = useState();
 
-  state = {
-    isLoaded: false
-  }
+  let { id } = useParams();
 
-  componentDidMount(){
-    const fighter = this.props.match.params.id
-    this.props.fetchFighter(fighter)
-    .then(() => {
-      this.setState({ isLoaded: true })
-    })
-  }
+  useEffect(() => {
+    const fetchFighter = async () => {
+      const response = await axios.get(
+        `${process.env.REACT_APP_API_URL}/.netlify/functions/api/fighter/${fighter}`
+      );
 
-  componentDidUpdate(prevProps, prevState){
-    if(this.props.match.params !== prevProps.match.params){
-      this.setState({ isLoaded: false })
-      const fighter = this.props.match.params.id
-      this.props.fetchFighter(fighter)
-      .then(() => {
-        this.setState({ isLoaded: true })
-      })
-    }
-  }
+      console.log(response);
+      if (response.success) {
+        setFighter(response.data);
+      }
+    };
 
-  render() {
-    return (
-      <Wrapper>
-        {this.state.isLoaded
-          ?
-            <Fragment>
-              <Flag country={this.props.fighter.nationality} />
-              <FighterName name={this.props.fighter.name} nickname={this.props.fighter.nickname} />
-              <FighterImage name={this.props.fighter.name} />
-              <FighterRecord record={this.props.fighter.record} />
-              <Stats
-                summary={this.props.fighter.summary}
-                strikes={this.props.fighter.strikes}
-                takedowns={this.props.fighter.takedowns}
-              />
-              <BoutList fights={this.props.fighter.fights} />
-            </Fragment>
-          :
-          <Loader />
-        }
-      </Wrapper>
-    );
-  }
+    fetchFighter();
+  }, []);
 
-}
+  return (
+    <Wrapper>
+      {loaded ? (
+        <>
+          <Flag country={fighter.nationality} />
+          <FighterName name={fighter.name} nickname={fighter.nickname} />
+          <FighterImage name={fighter.name} />
+          <FighterRecord record={fighter.record} />
+          <Stats
+            summary={fighter.summary}
+            strikes={fighter.strikes}
+            takedowns={fighter.takedowns}
+          />
+          <BoutList fights={fighter.fights} />
+        </>
+      ) : (
+        <Loader />
+      )}
+    </Wrapper>
+  );
+};
 
-export default withRouter(connect((state, ownProps) => ({
-  fighter: state.fighter
-}), {fetchFighter})(Fighter));
+export default Fighter;
