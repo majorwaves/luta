@@ -1,75 +1,83 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import { withRouter } from 'react-router-dom';
-import { device } from '../utils/devices';
+import React, { Component } from "react";
+import styled from "styled-components";
+import { withRouter } from "react-router-dom";
+import { device } from "../utils/devices";
 
-const Wrapper = styled.div`
-
-`;
+const Wrapper = styled.div``;
 
 const Input = styled.input`
   border: 0;
   outline: 0;
   font-size: 20px;
   padding: 1.3rem 1rem 1rem;
-  color: white;
-  background: rgb(51,51,51);
+  color: rgb(51, 51, 51);
+  background: rgb(51, 51, 51);
   text-align: center;
-  font-family: 'FG';
+  font-family: "FG";
   width: 100%;
   appearance: none;
   border-radius: 0;
 
-  @media ${device.laptop}{
+  @media ${device.laptop} {
     background: transparent;
     font-size: 24px;
     width: auto;
-    padding: 1rem .25rem 1rem;
-    border-bottom: 2px solid white;
+    padding: 1rem 0.25rem 1rem;
+    border-bottom: 2px solid rgb(51, 51, 51);
   }
 
   &::-webkit-input-placeholder {
-    color: white;
+    color: rgb(51, 51, 51);
   }
 
   &::-moz-input-placeholder {
-    color: white;
+    color: rgb(51, 51, 51);
   }
-`
+`;
 
 class Search extends Component {
-
-  constructor(props){
-    super(props)
+  constructor(props) {
+    super(props);
 
     this.state = {
-      value: ''
-    }
+      value: ""
+    };
 
     this.search = React.createRef();
   }
 
-  handleChange = (e) => {
-    this.setState({ value: e.target.value })
-  }
+  handleChange = e => {
+    this.setState({ value: e.target.value });
+  };
 
-  handleSubmit = (e) => {
+  handleSubmit = e => {
     e.preventDefault();
     this.search.current.blur();
-    this.props.history.push(`/fighter/${this.state.value}`)
-    this.setState({value: ''})
-  }
+    this.props.history.push(`/fighter/${this.state.value}`);
+    this.setState({ value: "" });
+  };
 
   render() {
     return (
       <Wrapper>
-        <form onSubmit={(e) => { this.handleSubmit(e) }}>
-          <Input type='search' ref={this.search} placeholder='Search a fighter' onChange={(e) => { this.handleChange(e) }} value={this.state.value} />
+        <form
+          onSubmit={e => {
+            this.handleSubmit(e);
+          }}
+        >
+          <Input
+            type="search"
+            ref={this.search}
+            placeholder="Search a fighter"
+            onChange={e => {
+              this.handleChange(e);
+            }}
+            value={this.state.value}
+          />
         </form>
       </Wrapper>
     );
   }
-
 }
 
 export default withRouter(Search);
