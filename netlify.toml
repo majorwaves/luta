@@ -7,3 +7,8 @@
   functionsPort = 34567
   targetPort = 8080
   port = 8000
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
