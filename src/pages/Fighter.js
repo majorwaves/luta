@@ -68,7 +68,7 @@ const Fighter = () => {
     };
 
     fetchFighter();
-  }, []);
+  }, [id]);
 
   return (
     <Wrapper>
