@@ -61,7 +61,7 @@ const Fighter = () => {
       );
 
       console.log(response.data.data);
-      if (response.success.data) {
+      if (response.data.success) {
         setFighter(response.data.data);
         setLoaded(true);
       }
