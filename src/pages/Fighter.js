@@ -50,7 +50,7 @@ const Loader = styled.div`
 
 const Fighter = () => {
   const [loaded, setLoaded] = useState();
-  const [fighter, setFighter] = useState();
+  const [fighter, setFighter] = useState(false);
 
   let { id } = useParams();
 
@@ -60,9 +60,9 @@ const Fighter = () => {
         `${process.env.REACT_APP_API_URL}/.netlify/functions/api/fighter/${id}`
       );
 
-      console.log(response.data);
+      console.log(response.data.data);
       if (response.success.data) {
-        setFighter(response.data);
+        setFighter(response.data.data);
         setLoaded(true);
       }
     };
