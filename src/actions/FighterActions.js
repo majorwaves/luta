@@ -11,7 +11,6 @@ export function fetchFighter(fighter) {
         `${process.env.REACT_APP_API_URL}/.netlify/functions/api/fighter/${fighter}`
       )
       .then(fighter => {
-        console.log(fighter);
         return dispatch({
           type: FETCH_FIGHTER,
           payload: fighter.data

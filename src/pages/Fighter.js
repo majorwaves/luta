@@ -9,6 +9,7 @@ import FighterRecord from "../components/FighterRecord";
 import FighterImage from "../components/FighterImage";
 import BoutList from "../components/BoutList";
 import Stats from "../components/Stats";
+import Chart from "../components/Chart";
 
 const Wrapper = styled.div``;
 
@@ -67,7 +68,6 @@ const Fighter = () => {
         `${api}/.netlify/functions/api/fighter/${id}`
       );
 
-      console.log(response.data.data);
       if (response.data.success) {
         setFighter(response.data.data);
         setLoaded(true);
@@ -97,6 +97,11 @@ const Fighter = () => {
           <FighterName name={name} nickname={nickname} />
           <FighterImage name={name} />
           <FighterRecord wins={wins} losses={losses} />
+          <Chart
+            fights={fights}
+            width={window.innerWidth * 0.4}
+            height={window.innerWidth * 0.1}
+          />
           <Stats
             fights={fights}
             summary={summary}

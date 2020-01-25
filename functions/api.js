@@ -73,7 +73,6 @@ router.get("/fighter/:name", async (req, res) => {
   // Check if it's a sherdog link
   if (link.includes("sherdog.com")) {
     sherdog.getFighter(link, data => {
-      console.log(`weight: ${data.weight}`);
       fighter.name = data.name;
       fighter.nickname = data.nickname;
       fighter.association = data.association;
