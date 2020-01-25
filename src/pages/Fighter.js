@@ -84,7 +84,7 @@ const Fighter = () => {
           <Flag country={fighter.nationality} />
           <FighterName name={fighter.name} nickname={fighter.nickname} />
           <FighterImage name={fighter.name} />
-          <FighterRecord record={fighter.record} />
+          <FighterRecord wins={fighter.wins} losses={fighter.losses} />
           <Stats
             summary={fighter.summary}
             strikes={fighter.strikes}
