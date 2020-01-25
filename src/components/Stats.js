@@ -81,6 +81,7 @@ const Stats = ({ strikes, takedowns, fights, summary }) => {
 
   return (
     <Wrapper>
+      {/*
       <List>
         <Header>Attributes</Header>
         {renderStyles()}
@@ -97,6 +98,7 @@ const Stats = ({ strikes, takedowns, fights, summary }) => {
         <Item>{takedowns.attempted} Attempted</Item>
         <Item>{takedownAccuracy}% Accuracy</Item>
       </List>
+      */}
       <List>
         <Header>Current Win Streak</Header>
         <Item>{calculateStreak(fights).current}</Item>
