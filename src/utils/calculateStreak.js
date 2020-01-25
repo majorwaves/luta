@@ -27,7 +27,7 @@ const calculateStreak = fights => {
 
   return {
     longest: Math.max(...streaks),
-    current: onStreak ? streaks[currentStreak] : 0
+    current: onStreak ? streaks[currentStreak] : "—"
   };
 };
 
