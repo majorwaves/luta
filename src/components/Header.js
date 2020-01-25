@@ -10,6 +10,8 @@ const Head = styled.header`
   right: 0;
   position: fixed;
   color: white;
+  background: white;
+  box-shadow: 0px 25px 30px 5px white;
   z-index: 3;
 
   @media ${device.laptop} {

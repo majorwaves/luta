@@ -9,21 +9,18 @@ const Input = styled.input`
   border: 0;
   outline: 0;
   font-size: 20px;
-  padding: 1.3rem 1rem 1rem;
-  color: rgb(51, 51, 51);
+  padding: 1rem;
   background: rgb(51, 51, 51);
-  text-align: center;
+  color: white;
+  box-sizing: border-box;
   font-family: "FG";
   width: 100%;
   appearance: none;
   border-radius: 0;
 
   @media ${device.laptop} {
-    background: transparent;
     font-size: 24px;
     width: auto;
-    padding: 1rem 0.25rem 1rem;
-    border-bottom: 2px solid rgb(51, 51, 51);
   }
 
   &::-webkit-input-placeholder {
