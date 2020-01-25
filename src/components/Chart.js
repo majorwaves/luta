@@ -7,6 +7,12 @@ const Wrapper = styled.div`
   margin: 4rem auto;
   display: flex;
   justify-content: center;
+
+  svg {
+    path {
+      stroke-width: 3px;
+    }
+  }
 `;
 
 const Chart = ({ fights, width, height }) => {
@@ -44,6 +50,7 @@ const Chart = ({ fights, width, height }) => {
           hideXAxis
           hideYAxis
           hidePoints
+          pointRadius={20}
           data={[
             {
               color: "black",
