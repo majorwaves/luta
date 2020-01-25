@@ -51,10 +51,19 @@ const NickName = styled.h2`
   }
 `;
 
-const FighterName = ({ nickname, name }) => (
+const Town = styled.h4`
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: 400;
+  margin: 0 0 4rem;
+`;
+
+const FighterName = ({ nickname, name, hometown }) => (
   <Wrapper>
     {nickname !== "" && <NickName>{nickname}</NickName>}
     <Name>{name}</Name>
+    <Town>{hometown}</Town>
   </Wrapper>
 );
 

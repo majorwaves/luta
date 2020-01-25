@@ -70,6 +70,7 @@ const Fighter = () => {
 
       if (response.data.success) {
         setFighter(response.data.data);
+        console.log(response.data.data);
         setLoaded(true);
       }
     };
@@ -79,6 +80,7 @@ const Fighter = () => {
 
   const {
     nationality,
+    hometown,
     name,
     nickname,
     wins,
@@ -94,7 +96,7 @@ const Fighter = () => {
       {loaded ? (
         <>
           <Flag country={nationality} />
-          <FighterName name={name} nickname={nickname} />
+          <FighterName hometown={hometown} name={name} nickname={nickname} />
           <FighterImage name={name} />
           <FighterRecord wins={wins} losses={losses} />
           <Chart
