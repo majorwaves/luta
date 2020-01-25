@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import axios from 'axios';
+import React, { Component } from "react";
+import styled from "styled-components";
+import axios from "axios";
 
 const Wrapper = styled.div`
   width: 4vw;
@@ -9,7 +9,7 @@ const Wrapper = styled.div`
 
   img {
     width: 100%;
-    box-shadow: 0px 10px 22px -9px rgba(0,0,0,0.16);
+    box-shadow: 0px 10px 22px -9px rgba(0, 0, 0, 0.16);
   }
 `;
 
@@ -18,56 +18,56 @@ const Default = styled.div`
   width: 5vw;
   min-width: 100px;
   height: 2.5vw;
-`
+`;
 
 class Flag extends Component {
-
   state = {
     country: [],
     isLoaded: false
-  }
+  };
 
-  componentDidMount(){
-    let country = '';
+  componentDidMount() {
+    let country = "";
     switch (this.props.country) {
-      case 'United States':
-        country = 'United States of America';
+      case "United States":
+        country = "United States of America";
         break;
-      case 'Russia':
-        country = 'Russian Federation';
+      case "Russia":
+        country = "Russian Federation";
         break;
-      case 'England':
-        country = 'United Kingdom of Great Britain and Northern Ireland'
+      case "England":
+        country = "United Kingdom of Great Britain and Northern Ireland";
         break;
-      case 'Scotland':
-        country = 'United Kingdom of Great Britain and Northern Ireland'
+      case "Scotland":
+        country = "United Kingdom of Great Britain and Northern Ireland";
         break;
-      case 'Northern Ireland':
-        country = 'United Kingdom of Great Britain and Northern Ireland'
+      case "Northern Ireland":
+        country = "United Kingdom of Great Britain and Northern Ireland";
         break;
       default:
-        country = this.props.country
+        country = this.props.country;
     }
-    console.log(country)
-    axios.get(`https://restcountries.eu/rest/v2/name/${country}?fullText=true`)
-    .then(country => {
-      this.setState({ country: country.data[0], isLoaded: true })
-    })
+    axios
+      .get(`https://restcountries.eu/rest/v2/name/${country}?fullText=true`)
+      .then(country => {
+        this.setState({ country: country.data[0], isLoaded: true });
+      });
   }
 
   render() {
     return (
       <Wrapper>
-        {this.state.isLoaded
-          ?
-            <img alt={`${this.props.country} flag`} src={this.state.country.flag} />
-          :
-          <Default/>
-        }
+        {this.state.isLoaded ? (
+          <img
+            alt={`${this.props.country} flag`}
+            src={this.state.country.flag}
+          />
+        ) : (
+          <Default />
+        )}
       </Wrapper>
     );
   }
-
 }
 
 export default Flag;

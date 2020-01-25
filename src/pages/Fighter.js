@@ -77,20 +77,33 @@ const Fighter = () => {
     fetchFighter();
   }, [id]);
 
+  const {
+    nationality,
+    name,
+    nickname,
+    wins,
+    losses,
+    fights,
+    strikes,
+    takedowns,
+    summary
+  } = fighter;
+
   return (
     <Wrapper>
       {loaded ? (
         <>
-          <Flag country={fighter.nationality} />
-          <FighterName name={fighter.name} nickname={fighter.nickname} />
-          <FighterImage name={fighter.name} />
-          <FighterRecord wins={fighter.wins} losses={fighter.losses} />
+          <Flag country={nationality} />
+          <FighterName name={name} nickname={nickname} />
+          <FighterImage name={name} />
+          <FighterRecord wins={wins} losses={losses} />
           <Stats
-            summary={fighter.summary}
-            strikes={fighter.strikes}
-            takedowns={fighter.takedowns}
+            fights={fights}
+            summary={summary}
+            strikes={strikes}
+            takedowns={takedowns}
           />
-          <BoutList fights={fighter.fights} />
+          <BoutList fights={fights} />
         </>
       ) : (
         <Loader />
