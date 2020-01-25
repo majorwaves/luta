@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
-import { device } from '../utils/devices';
+import React from "react";
+import styled from "styled-components";
+import { device } from "../utils/devices";
 
 const Wrapper = styled.div`
   margin: 1rem 0;
-`
+`;
 
 const Name = styled.h2`
   margin: 0;
@@ -15,59 +15,47 @@ const Name = styled.h2`
   text-align: center;
   text-transform: uppercase;
 
-  @media ${device.laptop}{
+  @media ${device.laptop} {
     font-size: 120px;
-    line-height: 160px;
+    line-height: 120px;
+    margin-top: 1rem;
     padding: 0;
   }
 `;
 
 const NickName = styled.h2`
-  font-family: 'OR';
+  font-family: "OR";
   font-weight: 200;
   font-size: 48px;
   margin: 0;
   text-align: center;
 
-  @media ${device.laptop}{
+  @media ${device.laptop} {
     font-size: 72px;
   }
 
   &:before {
-    content: '“';
+    content: "“";
 
-    @media ${device.laptop}{
+    @media ${device.laptop} {
       padding-right: 1rem;
     }
   }
 
   &:after {
-    content: '”';
+    content: "”";
 
-    @media ${device.laptop}{
+    @media ${device.laptop} {
       padding-left: 1rem;
     }
   }
-`
+`;
 
-const FighterName = (props) => {
-
-
-
-  const renderNickName = () => {
-    if(props.nickname !== ''){
-      return <NickName>{props.nickname}</NickName>
-    } else {
-      return
-    }
-  }
-
-  return (
-    <Wrapper>
-      {renderNickName()}
-      <Name>{props.name}</Name>
-    </Wrapper>
-  )
-}
+const FighterName = ({ nickname, name }) => (
+  <Wrapper>
+    {nickname !== "" && <NickName>{nickname}</NickName>}
+    <Name>{name}</Name>
+  </Wrapper>
+);
 
 export default FighterName;
