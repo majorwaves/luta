@@ -26,13 +26,20 @@ const Chart = ({ fights, width, height }) => {
 
       fightsCopy.map((fight, index) => {
         if (fight.result === "win") {
-          return chartData.push({ x: index, y: 1 });
+          return chartData.push({
+            x: index,
+            y: 1,
+            opponent: fights[index].oponnent
+          });
         } else {
-          return chartData.push({ x: index, y: 0 });
+          return chartData.push({
+            x: index,
+            y: 0,
+            opponent: fights[index].oponnent
+          });
         }
       });
 
-      console.log(chartData);
       setData(chartData);
     };
 
@@ -50,7 +57,6 @@ const Chart = ({ fights, width, height }) => {
           hideXAxis
           hideYAxis
           hidePoints
-          pointRadius={20}
           data={[
             {
               color: "black",
